@@ -8,7 +8,7 @@ Future<Response> onRequest(
     RequestContext context, String itemId, String taskId,) {
   return switch (context.request.method) {
     HttpMethod.delete => deleteTask(context, taskId, itemId),
-    HttpMethod.post => updateTaskById(context, taskId, itemId),
+    HttpMethod.put => updateTaskById(context, taskId, itemId),
     _ => Future.value(
         Response(body: 'Bad Request', statusCode: HttpStatus.badRequest),
       ),
